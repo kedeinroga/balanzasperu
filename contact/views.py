@@ -14,6 +14,7 @@ def contact(request):
     if request.method == "POST":
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
+            empresa = request.POST.get('empresa', '')
             name = request.POST.get('name', '')
             email = request.POST.get('email', '')
             service = request.POST.get('service', '')
@@ -22,8 +23,8 @@ def contact(request):
 
             # Creamos el correo
             email = EmailMessage(
-                "Balanzas Perú: Nuevo mensaje de contacto",
-                "De {} <{}>\n\nSoicita el servicio de : {} \n\nNumero de contacto: {} \n\nEscribió:\n\n{}".format(name, email, service, phone, content),
+                "Balanzas Peru: Nuevo mensaje de contacto",
+                "La empresa: {}\n\n De {} <{}>\n\nSoicita el servicio de : {} \n\nNumero de contacto: {} \n\nEscribió:\n\n{}".format(empresa, name, email, service, phone, content),
                 "no-contestar@balanzas.pe",
                 ["keybroga@balanzas.pe"],
                 reply_to=[email]

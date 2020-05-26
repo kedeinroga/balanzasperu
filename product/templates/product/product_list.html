@@ -6,6 +6,110 @@
 
 {% block content %}
 
-<h1>Producto en listas</h1>
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Grid Gallery</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url({% static 'core/' %}images/bg-forms.jpg);"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="index.html">Home</a></li>
+        <li class="active">Grid Gallery</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Grid Gallery-->
+  <section class="section section-lg bg-default">
+    <div class="container">
+      <div class="isotope-filters isotope-filters-horizontal">
+        <button class="isotope-filters-toggle button button-sm button-icon button-icon-right button-gray-3" data-custom-toggle=".isotope-filters-list" data-custom-toggle-hide-on-blur="true"><span class="icon mdi mdi-chevron-down"></span>Filter</button>
+        <ul class="isotope-filters-list">
+          <li><a class="active" href="#" data-isotope-filter="*" data-isotope-group="gallery">All</a></li>
+          <li><a href="#" data-isotope-filter="Type 1" data-isotope-group="gallery">Reconstruction</a></li>
+          <li><a href="#" data-isotope-filter="Type 2" data-isotope-group="gallery">Architectural Design</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid container-inset-0">
+      <div class="row row-30 row-desktop-8 gutters-8 isotope hoverdir" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-1-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-1-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #1</a></h5>
+              <div class="thumbnail-modern-badge">Server Maintenance</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}/grid-gallery-2-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-2-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #2</a></h5>
+              <div class="thumbnail-modern-badge">pc repair</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-3-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-3-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #3</a></h5>
+              <div class="thumbnail-modern-badge">parts installation</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-4-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-4-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #4</a></h5>
+              <div class="thumbnail-modern-badge">HDD Recovery</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-5-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-5-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #5</a></h5>
+              <div class="thumbnail-modern-badge">iphone Repair</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-6-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-6-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #6</a></h5>
+              <div class="thumbnail-modern-badge">Diagnostics</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-7-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-7-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #7</a></h5>
+              <div class="thumbnail-modern-badge">hardware upgrade</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-8-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-8-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="#">Project name #8</a></h5>
+              <div class="thumbnail-modern-badge">virus removal</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
 
 {% endblock %}

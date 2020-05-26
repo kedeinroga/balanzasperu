@@ -17,8 +17,7 @@
 </div>
 <div class="container">
     <ul class="breadcrumbs-custom-path">
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'about' %}#">Pages</a></li>
+    <li><a href="{% url 'home' %}">Inicio</a></li>
     <li class="active">About Us</li>
     </ul>
 </div>
@@ -28,36 +27,40 @@
 <div class="container">
     <div class="tabs-custom row row-50 justify-content-center flex-lg-row-reverse text-center text-md-left" id="tabs-4">
     <div class="col-lg-4 col-xl-3">
-        <h5 class="text-spacing-200">20+ years of experience</h5>
+        <h5 class="text-spacing-200">Más de 7 años de experiencia</h5>
         <ul class="nav list-category list-category-down-md-inline-block">
-        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay="0s"><a class="active" href="{% url 'about' %}#tabs-4-1" data-toggle="tab">About us</a></li>
-        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".1s"><a href="{% url 'about' %}#tabs-4-2" data-toggle="tab">Our Mission</a></li>
-        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".2s"><a href="{% url 'about' %}#tabs-4-3" data-toggle="tab">Our Goals</a></li>
-        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".3s"><a href="{% url 'about' %}#tabs-4-4" data-toggle="tab">Company values</a></li>
-        </ul><a class="button button-lg button-primary button-winona" href="{% url 'contact' %}">Contact us</a>
+        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay="0s"><a class="active" href="#tabs-4-1" data-toggle="tab">Nosotros</a></li>
+        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".1s"><a href="#tabs-4-2" data-toggle="tab">Nuestra misión</a></li>
+        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".2s"><a href="#tabs-4-3" data-toggle="tab">Nuestros logros</a></li>
+        <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".3s"><a href="#tabs-4-4" data-toggle="tab">Valores de la empresa</a></li>
+        </ul><a class="button button-lg button-primary button-winona" href="{% url 'contact' %}">Contáctanos</a>
     </div>
     <div class="col-lg-8 col-xl-9">
         <!-- Tab panes-->
         <div class="tab-content tab-content-1">
         <div class="tab-pane fade show active" id="tabs-4-1">
-            <h4>a few words about us</h4>
-            <p>Cscrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of</p><img src="images/about-1-835x418.jpg" alt="" width="835" height="418"/>
+            <h4>Unas palabras sobre nosotros</h4>
+            <p>Balanzas Perú, fundada en el año 2013, es una empresa dedicada a brindar Soluciones de Automatización, Integración de Sistemas, Desarrollo de Software y Hardware a medida.</p>
+            <p>Contamos por ingenieros con amplia experiencia en automatización, con conocimiento de metodologias para realizar investigación y desarrollo el cual nos permite diseñar y fabrica productos electrónicos de valor agregado para uso Industrial o Comercial.</p>
+            <img src="{% static 'core/' %}images/about-1-835x418.jpg" alt="" width="835" height="418"/>
         </div>
         <div class="tab-pane fade" id="tabs-4-2">
-            <h4>providing quality repair services</h4>
-            <p>Albus, dexter particulas grauiter consumere de ferox, bi-color abactus. Impositios studere, tanquam mirabilis hippotoxota. Cur torus manducare? Pol, vox! Cum barcas nocere, omnes specieses contactus</p>
-            <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p><img src="images/about-2-835x418.jpg" alt="" width="835" height="418"/>
+            <h4>Proporcionando servicios de reparación de calidad</h4>
+            <p>Nuestra Misión es poder ofrecer servicios profesionales y productos de calidad, que pueda incentivar al desarrollo de tecnología y productos de valor agregado competitivos.</p>
+            
+            <img src="{% static 'core/' %}images/about-2-835x418.jpg" alt="" width="835" height="418"/>
         </div>
         <div class="tab-pane fade" id="tabs-4-3">
-            <h4>offering the best customer service</h4>
-            <p>Albus, dexter particulas grauiter consumere de ferox, bi-color abactus. Impositios studere, tanquam mirabilis hippotoxota. Cur torus manducare? Pol, vox! Cum barcas nocere, omnes specieses contactus</p>
-            <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p><img src="images/about-4-835x418.jpg" alt="" width="835" height="418"/>
+            <h4>Ofreciendo el mejor servicio al cliente</h4>
+            <p>Entre nuestras principales actividades destacan: Integración de Sistemas, Automatización, Desarrollo de Hardware personalizado y Desarrollo de Software.</p>
+            
+            <img src="{% static 'core/' %}images/about-4-835x418.jpg" alt="" width="835" height="418"/>
         </div>
         <div class="tab-pane fade" id="tabs-4-4">
-            <h4>Dedication, integrity, and expertise</h4>
-            <p>Albus, dexter particulas grauiter consumere de ferox, bi-color abactus. Impositios studere, tanquam mirabilis hippotoxota. Cur torus manducare? Pol, vox! Cum barcas nocere, omnes specieses contactus</p>
-            <p>Lotus advenas ducunt ad gemna. Ubi est domesticus domina? Heu, barbatus mens! Cum elogium favere, omnes lubaes tractare talis, barbatus adiuratores. Mirabilis hydras ducunt ad danista. Dominas sunt accentors de germanus cacula. Amicitias prarere in alta muta! Ecce, bubo! Nunquam promissio verpa. Talis, primus fugas recte consumere de audax, festus indictio. Nunquam quaestio scutum. Valebats</p><img src="images/about-3-835x418.jpg" alt="" width="835" height="418"/>
+            <h4>Dedicación, integridad y experiencia</h4>
+            <p>Nuestra Visión es ser la mejor alternativa para usted, y tener presencia a nivel nacional.</p>
+            
+            <img src="{% static 'core/' %}images/about-3-835x418.jpg" alt="" width="835" height="418"/>
         </div>
         </div>
     </div>
@@ -115,7 +118,7 @@
 <!-- Our Team-->
 <section class="section section-lg section-bottom-md-70 bg-default">
 <div class="container">
-    <h3 class="oh"><span class="d-inline-block wow slideInUp" data-wow-delay="0s">Our team</span></h3>
+    <h3 class="oh"><span class="d-inline-block wow slideInUp" data-wow-delay="0s">Nuestro equipo</span></h3>
     <div class="row row-lg row-40 justify-content-center">
     <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">
         <!-- Team Modern-->
@@ -186,7 +189,7 @@
 <div class="container">
     <div class="row row-60 justify-content-center justify-content-xxl-between">
     <div class="col-lg-6 col-xxl-5 position-static">
-        <h3>Our history</h3>
+        <h3>Nuestra historia</h3>
         <div class="tabs-custom" id="tabs-5">
         <div class="tab-content tab-content-1">
             <div class="tab-pane fade" id="tabs-5-1">
@@ -239,7 +242,7 @@
     <div class="row row-60 justify-content-center flex-lg-row-reverse">
     <div class="col-md-8 col-lg-6 col-xl-5">
         <div class="offset-left-xl-70">
-        <h3>Our clients</h3>
+        <h3>Nuestros clientes</h3>
         <div class="slick-quote">
             <!-- Slick Carousel-->
             <div class="slick-slider carousel-parent" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-5" data-for="#child-carousel-5" data-slide-effect="true">

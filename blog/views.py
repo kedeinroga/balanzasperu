@@ -24,11 +24,16 @@ class BlogDetailView(DetailView):
     
 
 class CategoryDetailView(DetailView):
-    category = Category.objects.all()
-    context = {'category':category}
-    print(context)
+    
+    
     model = Category
     template_name = 'blog/category_detail.html'
+    def get(self, request, *args, **kwargs):
+        category = Category.objects.all()
+        post_list = Post.objects.all().order_by('-id')
+        context = {'category':category, 'post_list':post_list}
+        print(context)
+        return render(request, self.template_name, context)
     
 
 
