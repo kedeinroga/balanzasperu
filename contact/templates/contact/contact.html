@@ -34,6 +34,14 @@
         {% csrf_token %}
           <div class="row row-20 gutters-20">
             <div class="col-md-6">
+              <div class="form-wrap">                 
+                <div class="input-group">
+                    {{form.empresa}}
+                  </div>
+                 {{form.empresa.errors}}
+              </div>
+            </div>
+            <div class="col-md-6">
               <div class="form-wrap">
                 <!--<input class="form-input" id="contact-your-name-5" type="text" name="name" data-constraints="@Required">
                 <label class="form-label" for="contact-your-name-5">Your Name*</label>-->
@@ -57,6 +65,17 @@
             </div>
             <div class="col-md-6">
               <div class="form-wrap">
+                <!--<input class="form-input" id="contact-phone-5" type="text" name="phone" data-constraints="@Numeric">
+                <label class="form-label" for="contact-phone-5">Your Phone*</label>-->
+                  
+                    <div class="input-group">
+                        {{form.phone}}
+                    </div>
+                    {{form.phone.errors}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-wrap">
                 <!--Select 2-->
                 <!--<select class="form-input" data-minimum-results-for-search="Infinity" data-constraints="@Required">
                   <option value="1">Select a Service</option>
@@ -71,17 +90,7 @@
                     {{form.service.errors}}
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-wrap">
-                <!--<input class="form-input" id="contact-phone-5" type="text" name="phone" data-constraints="@Numeric">
-                <label class="form-label" for="contact-phone-5">Your Phone*</label>-->
-                  
-                    <div class="input-group">
-                        {{form.phone}}
-                    </div>
-                    {{form.phone.errors}}
-              </div>
-            </div>
+            
             <div class="col-12">
               <div class="form-wrap">
                 <!--<label class="form-label" for="contact-message-5">Message</label>

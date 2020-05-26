@@ -12,9 +12,19 @@ class ServicesListView(ListView):
     paginate_by = 6
 
     def get(self, request, *args, **kwargs):
+        service = Service.objects.all()
         category = Category.objects.all()
-        context = {'category':category}
+        post_list = Post.objects.all().order_by('-id')
+        context = {'category':category, 'post_list':post_list, 'service':service}
         return render(request, self.template_name, context)
 
 class ServicesDetailView(DetailView):
     model = Service
+    template_name = 'services/service_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        service = Service.objects.all()
+        category = Category.objects.all()
+        post_list = Post.objects.all().order_by('-id')
+        context = {'category':category, 'post_list':post_list, 'service':service}
+        return render(request, self.template_name, context)

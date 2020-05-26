@@ -2,6 +2,9 @@ from django import forms
 from phonenumber_field.formfields import PhoneNumberField
 
 class ContactForm(forms.Form):
+    empresa = forms.CharField(label="Empresa", required=True, widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder':'Escribe el nombre de tu empresa'}
+    ), min_length=3, max_length=100)
     name = forms.CharField(label="Nombre", required=True, widget=forms.TextInput(
         attrs={'class':'form-control', 'placeholder':'Escribe tu nombre'}
     ), min_length=3, max_length=100)
