@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 
 def contact(request):
-    category = Category.objects.all()
+    
     
     contact_form = ContactForm()
 
@@ -39,6 +39,6 @@ def contact(request):
                 return redirect(reverse('contact')+"?fail")
 
     
-    return render(request, "contact/contact.html", {'form':contact_form, 'category':category})
+    return render(request, "contact/contact.html", {'form':contact_form})
 
     

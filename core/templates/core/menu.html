@@ -111,20 +111,29 @@
             <li class="rd-nav-item {% if request.path|slice:":6" == '/blog/' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'blog:blog' %}">Blog</a>
                 
                 <!-- RD Navbar Megamenu-->
-                {% load mptt_tags %}
                 <ul class="rd-menu rd-navbar-megamenu">
-                    {% recursetree category %}
                     <li class="rd-megamenu-item">
-                        <h6 class="rd-megamenu-title">{{ node.name }}</h6>
-                        {% if not node.is_leaf_node %}
+                        <h6 class="rd-megamenu-title">Productos 1</h6>
                         <ul class="rd-megamenu-list">
-                        <li class="rd-megamenu-list-item">
-                            <a class="rd-megamenu-list-link" href="/blog/category/{{ node.id }}"> {{ children }}</a>
-                        </li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 page</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">Coming soon</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="about-us.html">About us</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="counters.html">Counters</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="icon-lists.html">Icon lists</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="search-results.html">Search results</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="privacy-policy.html">Privacy policy</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="contacts.html">Contacts</a></li>
                         </ul>
-                        {% endif %}
                     </li>
-                    {% endrecursetree %}
+                    <li class="rd-megamenu-item">
+                        <h6 class="rd-megamenu-title">Productos 2</h6>
+                        <ul class="rd-megamenu-list">
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="shop.html">Shop</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="single-product.html">Single product</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="checkout.html">Checkout</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="cart-page.html">Cart page</a></li>
+                        </ul>
+                    </li>
                     </ul>
                 
             </li>

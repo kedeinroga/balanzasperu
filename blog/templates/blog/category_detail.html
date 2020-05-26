@@ -29,7 +29,7 @@
   <div class="container">
     <div class="row row-60 row-xl-75">
       <div class="col-lg-8">
-        {% for post in post_list %}
+        {% for post in post.categories.all %}
         <div class="single-post section-style-2">
           <h5 class="text-spacing-50 font-weight-normal text-transform-none">{{post.title}}</h5>
           <div class="group-md group-middle">
@@ -70,11 +70,11 @@
               <h6 class="aside-title">Category</h6>
               <ul class="list-marked-2 list-category-2">
                 
-                {% for post in post_list %}
+                
                 {% for category in post.categories.all %}
                     <a href="{% url 'blog:category' category.id %}" class="link">{{category.name}}</a>{% if not forloop.last %}{% endif %}
                 {% endfor %}
-                {% endfor %}
+                
               
               </ul>
             </div>

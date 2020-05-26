@@ -11,10 +11,6 @@ class ServicesListView(ListView):
     template_name = 'services/service_list.html'
     paginate_by = 6
 
-    def get(self, request, *args, **kwargs):
-        category = Category.objects.all()
-        context = {'category':category}
-        return render(request, self.template_name, context)
 
 class ServicesDetailView(DetailView):
     model = Service
