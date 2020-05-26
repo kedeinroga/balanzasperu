@@ -12,7 +12,9 @@ def home(request):
     return render(request, "core/home.html",context)
 
 def about(request):
-    return render(request, "core/about.html")
+    category = Category.objects.all()
+    context = {'category':category}
+    return render(request, "core/about.html",context)
 
 def store(request):
     return render(request, "core/store.html")
