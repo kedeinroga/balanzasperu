@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}{{object.title}}{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+  <div class="breadcrumbs-custom box-transform-wrap context-dark">
+    <div class="container">
+      <h3 class="breadcrumbs-custom-title">{{object.title}}</h3>
+      <div class="breadcrumbs-custom-decor"></div>
+    </div>
+    <div class="box-transform" style="background-image: url({% static 'core/images/bg-services.jpg' %});"></div>
+  </div>
+  <div class="container">
+    <ul class="breadcrumbs-custom-path">
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+      <li><a href="{% url 'services:services' %}">Servicios</a></li>
+      <li class="active">Detalles</li>
+    </ul>
+  </div>
+</section>
+<!-- Services-->
+<section class="section section-sm section-first bg-default text-left">
+  <div class="container">
+    <div class="row row-60">
+      <div class="col-md-7 col-xl-8">
+        <div class="single-service"><img src="{{object.image.url}}" alt="" width="770" height="426"/>
+          <h4>{{object.title}}</h4>
+          <p>{{object.content}}</p>
+          
+        </div>
+      </div>
+      <div class="col-md-5 col-xl-4">
+        <div class="aside aside-services">
+          <div class="row row-60">
+            <div class="aside-item col-12">
+              <h5 class="aside-services-title">Solutions for your business</h5>
+              <ul class="list-category">
+                <li class="list-category-item"><a class="active" href="single-service.html#">All services</a></li>
+                <li class="list-category-item"><a href="single-service.html#">Data Recovery</a></li>
+                <li class="list-category-item"><a href="single-service.html#">Laptop Repair</a></li>
+                <li class="list-category-item"><a href="single-service.html#">Virus Removal</a></li>
+                <li class="list-category-item"><a href="single-service.html#">Apple Products</a></li>
+                <li class="list-category-item"><a href="single-service.html#">Cloud Services</a></li>
+                <li class="list-category-item"><a href="single-service.html#">Network Support</a></li>
+              </ul>
+            </div>
+            <div class="aside-item col-sm-6 col-md-12">
+              <h5 class="aside-services-title">Our contacts</h5>
+              <!-- Box contacts-->
+              <div class="box-contacts">
+                <div class="box-contacts-item">
+                  <div class="box-contacts-title">Free consultation</div>
+                  <div class="unit unit-spacing-xs flex-column flex-md-row">
+                    <div class="unit-left"><span class="icon icon-24 mdi mdi-phone"></span></div>
+                    <div class="unit-body"><a class="phone" href="tel:#">+1 718-999-3939</a></div>
+                  </div>
+                </div>
+                <div class="box-contacts-item">
+                  <div class="box-contacts-title">Office</div>
+                  <div class="unit unit-spacing-xs flex-column flex-md-row">
+                    <div class="unit-left"><span class="icon icon-28 mdi mdi-map-marker"></span></div>
+                    <div class="unit-body"><a class="address" href="single-service.html#">514 S. Magnolia St. Orlando, FL 32806</a></div>
+                  </div>
+                </div>
+                <div class="box-contacts-item">
+                  <div class="box-contacts-title">E-mail</div>
+                  <div class="unit unit-spacing-xs flex-column flex-md-row">
+                    <div class="unit-left"><span class="icon mdi mdi-email"></span></div>
+                    <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="aside-item col-sm-6 col-md-12">
+              <h5 class="aside-services-title">Our brochure</h5><a class="button button-lg button-icon button-icon-left button-primary button-winona" href="contacts.html"><span class="icon mdi mdi-download"></span><span>Download</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}
