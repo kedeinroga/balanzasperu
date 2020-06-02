@@ -11,7 +11,7 @@ class BlogListView(ListView):
     model = Post
     #post_list = Post.objects.all().order_by('-id')
     template_name = 'blog/post_list.html'
-    paginate_by = 1
+    paginate_by = 6
 
     
     
@@ -28,12 +28,14 @@ class CategoryDetailView(DetailView):
     
     model = Category
     template_name = 'blog/category_detail.html'
-    def get(self, request, *args, **kwargs):
-        category = Category.objects.all()
-        post_list = Post.objects.all().order_by('-id')
-        context = {'category':category, 'post_list':post_list}
-        print(context)
-        return render(request, self.template_name, context)
+    
+    #def get_context_data(self, **kwargs):
+        #context = super().get_context_data(**kwargs)
+        #category = Category.objects.all()
+        #post_list = Post.objects.all().order_by('-id')
+        #context = {'category':category, 'post_list':post_list}
+        #print(context)
+        #return context
     
 
 

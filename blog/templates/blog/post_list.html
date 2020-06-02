@@ -38,7 +38,7 @@
             </p>
             <em> 
               {% for category in post.categories.all %}
-                  <a href="{% url 'blog:category' category.id %}" class="link">{{category.name}}</a>{% if not forloop.last %},{% endif %}
+                  <a href="{% url 'blog:category' category.id category.name|slugify %}" class="link">{{category.name}}</a>{% if not forloop.last %},{% endif %}
               {% endfor %}
               
              </em>

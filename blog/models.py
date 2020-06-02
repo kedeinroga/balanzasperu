@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor.fields import RichTextField
 from django.utils.timezone import now
 from django.contrib.auth.models import User
@@ -20,6 +21,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    #def get_absolute_url(self):
+        #return ('category')
+
 
 
 class Post(models.Model):

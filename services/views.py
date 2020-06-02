@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from .models import Service
+from .models import Service, Category
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from blog.models import Post, Category
 from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
@@ -14,3 +13,10 @@ class ServicesListView(ListView):
 
 class ServicesDetailView(DetailView):
     model = Service
+
+
+class CategoryDetailView(DetailView):
+    
+    
+    model = Category
+    template_name = 'services/category_detail.html'

@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{object.title}}{% endblock %}
+{% block title %}{{category.name}}{% endblock %}
 
 
 
@@ -11,7 +11,7 @@
 <section class="bg-gray-7">
   <div class="breadcrumbs-custom box-transform-wrap context-dark">
     <div class="container">
-      <h3 class="breadcrumbs-custom-title">{{object.title}}</h3>
+      <h3 class="breadcrumbs-custom-title">{{category.name}}</h3>
       <div class="breadcrumbs-custom-decor"></div>
     </div>
     <div class="box-transform" style="background-image: url({% static 'core/images/bg-blog.jpg' %});"></div>
@@ -19,38 +19,38 @@
   <div class="container">
     <ul class="breadcrumbs-custom-path">
       <li><a href="{% url 'home' %}">Inicio</a></li>
-      <li><a href="{% url 'blog:blog' %}">Blog</a></li>
-      <li class="active">detalles</li>
+      <li><a href="{% url 'product:products' %}">Productos</a></li>
+      <li class="active">{{category.name}}</li>
     </ul>
   </div>
 </section>
-<!-- Grid Blog-->
+<!-- Grid Blog             -->
 <section class="section section-lg bg-default">
   <div class="container">
     <div class="row row-60 row-xl-75">
       <div class="col-lg-8">
-        
+        {% for post in category.get_products.all %}
         <div class="single-post section-style-2">
-          <h5 class="text-spacing-50 font-weight-normal text-transform-none">{{object.title}}</h5>
+          <h5 class="text-spacing-50 font-weight-normal text-transform-none">{{post.title}}</h5>
           <div class="group-md group-middle">
-            <time class="post-classic-time" datetime="">{{object.published|date:"SHORT_DATE_FORMAT"}}</time>
+            <time class="post-classic-time" datetime="2018-04-05">{{post.published|date:"SHORT_DATE_FORMAT"}}</time>
             <div>
               <ul class="list-inline list-inline-xl post-classic-info">
-                <li class="post-classic-author"><span class="icon mdi mdi-account-outline"></span><span>by <a href="blog-post.html#">{{object.author}}</a></span></li>
+                <li class="post-classic-author"><span class="icon mdi mdi-account-outline"></span><span>by <a href="#">{{post.author}}</a></span></li>
                 <!--<li class="post-classic-views"><span class="icon mdi mdi-eye"></span><span>3678</span></li>
-                <li class="post-classic-comments"><span class="icon mdi mdi-comment-outline"></span><a href="blog-post.html#">3</a></li>-->
+                <li class="post-classic-comments"><span class="icon mdi mdi-comment-outline"></span><a href="#">3</a></li>-->
               </ul>
             </div>
           </div>
-          <img src="{{object.image.url}}" alt="" width="770" height="403"/>
-            <p>{{post.content|striptags|safe}}</p>
+          <img src="{{post.image1.url}}" alt="" width="770" height="403"/>
+          {{post.content|striptags|safe}}
           <br>
-          
+          <br>
           <!-- Quote Classic-->
           
          
         </div>
-        
+        {% endfor %}
         
       </div>
       <div class="col-lg-4">
@@ -70,11 +70,13 @@
               <h6 class="aside-title">Category</h6>
               <ul class="list-marked-2 list-category-2">
                 
-                
+                {% for post in category.get_products.all %}
                 {% for category in post.categories.all %}
-                <li><a href="{% url 'blog:category' category.id category.name|slugify %}">{{category.name}}</a><span class="list-category-number">12</span></li>
+                    <a href="{% url 'product:category' category.id category.name|slugify %}" class="link">{{category.name}}</a>{% if not forloop.last %}{% endif %}
+                {% endfor %}
                 {% endfor %}
                 
+              
               </ul>
             </div>
             

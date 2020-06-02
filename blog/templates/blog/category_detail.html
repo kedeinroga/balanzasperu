@@ -11,7 +11,7 @@
 <section class="bg-gray-7">
   <div class="breadcrumbs-custom box-transform-wrap context-dark">
     <div class="container">
-      <h3 class="breadcrumbs-custom-title">Blog post</h3>
+      <h3 class="breadcrumbs-custom-title">{{category.name}}</h3>
       <div class="breadcrumbs-custom-decor"></div>
     </div>
     <div class="box-transform" style="background-image: url({% static 'core/images/bg-blog.jpg' %});"></div>
@@ -29,16 +29,16 @@
   <div class="container">
     <div class="row row-60 row-xl-75">
       <div class="col-lg-8">
-        {% for post in post.categories.all %}
+        {% for post in category.get_posts.all %}
         <div class="single-post section-style-2">
           <h5 class="text-spacing-50 font-weight-normal text-transform-none">{{post.title}}</h5>
           <div class="group-md group-middle">
             <time class="post-classic-time" datetime="2018-04-05">{{post.published|date:"SHORT_DATE_FORMAT"}}</time>
             <div>
               <ul class="list-inline list-inline-xl post-classic-info">
-                <li class="post-classic-author"><span class="icon mdi mdi-account-outline"></span><span>by <a href="blog-post.html#">{{post.author}}</a></span></li>
+                <li class="post-classic-author"><span class="icon mdi mdi-account-outline"></span><span>by <a href="#">{{post.author}}</a></span></li>
                 <!--<li class="post-classic-views"><span class="icon mdi mdi-eye"></span><span>3678</span></li>
-                <li class="post-classic-comments"><span class="icon mdi mdi-comment-outline"></span><a href="blog-post.html#">3</a></li>-->
+                <li class="post-classic-comments"><span class="icon mdi mdi-comment-outline"></span><a href="#">3</a></li>-->
               </ul>
             </div>
           </div>
@@ -70,9 +70,10 @@
               <h6 class="aside-title">Category</h6>
               <ul class="list-marked-2 list-category-2">
                 
-                
+                {% for post in category.get_posts.all %}
                 {% for category in post.categories.all %}
-                    <a href="{% url 'blog:category' category.id %}" class="link">{{category.name}}</a>{% if not forloop.last %}{% endif %}
+                    <a href="{% url 'blog:category' category.id category.name|slugify %}" class="link">{{category.name}}</a>{% if not forloop.last %}{% endif %}
+                {% endfor %}
                 {% endfor %}
                 
               

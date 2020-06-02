@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Producto{% endblock %}
+{% block title %}Productos{% endblock %}
 
 {% block content %}
 
@@ -10,15 +10,15 @@
 <section class="bg-gray-7">
     <div class="breadcrumbs-custom box-transform-wrap context-dark">
       <div class="container">
-        <h3 class="breadcrumbs-custom-title">Grid Gallery</h3>
+        <h3 class="breadcrumbs-custom-title">Productos</h3>
         <div class="breadcrumbs-custom-decor"></div>
       </div>
       <div class="box-transform" style="background-image: url({% static 'core/' %}images/bg-forms.jpg);"></div>
     </div>
     <div class="container">
       <ul class="breadcrumbs-custom-path">
-        <li><a href="index.html">Home</a></li>
-        <li class="active">Grid Gallery</li>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li class="active">Productos</li>
       </ul>
     </div>
   </section>
@@ -36,79 +36,56 @@
     </div>
     <div class="container-fluid container-inset-0">
       <div class="row row-30 row-desktop-8 gutters-8 isotope hoverdir" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
+        {% for product in product_list|dictsort:"id" reversed %}
         <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
           <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-1-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-1-474x355.jpg" alt="" width="474" height="355"/></a>
+          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption">
+            <a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-1-1200x800-original.jpg" data-lightgallery="item">
+              <img src="{{product.image1.url}}" alt="" width="474" height="355"/></a>
             <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #1</a></h5>
+              <h5 class="thumbnail-modern-title"><a href="{% url 'product:detail' product.id product.title|slugify %}">{{product.title|safe}}</a></h5>
               <div class="thumbnail-modern-badge">Server Maintenance</div>
             </div>
           </article>
         </div>
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}/grid-gallery-2-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-2-474x355.jpg" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #2</a></h5>
-              <div class="thumbnail-modern-badge">pc repair</div>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-3-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-3-474x355.jpg" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #3</a></h5>
-              <div class="thumbnail-modern-badge">parts installation</div>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-4-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-4-474x355.jpg" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #4</a></h5>
-              <div class="thumbnail-modern-badge">HDD Recovery</div>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-5-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-5-474x355.jpg" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #5</a></h5>
-              <div class="thumbnail-modern-badge">iphone Repair</div>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-6-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-6-474x355.jpg" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #6</a></h5>
-              <div class="thumbnail-modern-badge">Diagnostics</div>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-7-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-7-474x355.jpg" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #7</a></h5>
-              <div class="thumbnail-modern-badge">hardware upgrade</div>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-8-1200x800-original.jpg" data-lightgallery="item"><img src="{% static 'core/' %}images/grid-gallery-8-474x355.jpg" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="#">Project name #8</a></h5>
-              <div class="thumbnail-modern-badge">virus removal</div>
-            </div>
-          </article>
-        </div>
+        {% endfor %}
       </div>
+    </div>
+    <div class="pagination-wrap">
+      <!-- Bootstrap Pagination-->
+      {% if is_paginated %}
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li class="page-item page-item-control ">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                  <span class="icon" aria-hidden="true"></span>
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item page-item-control disabled">
+                <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+              </li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+              <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+              </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li class="page-item page-item-control">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                  <span class="icon" aria-hidden="true"></span>
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item page-item-control disabled">
+                <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
     </div>
   </section>
 
