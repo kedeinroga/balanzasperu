@@ -105,7 +105,12 @@
                     </li>
                     <li class="rd-nav-item {% if request.path == '/services/' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'services:services' %}">Servicios</a>
                         <!-- RD Navbar Megamenu-->
-                        <ul class="rd-menu rd-navbar-megamenu">
+                        <ul class="rd-menu rd-navbar-dropdown">
+                        {% for page in services_context %}
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{% url 'services:category' page.id page.name|slugify %}">{{page.name}}</a></li>
+                        {% endfor %}
+                        </ul>
+                        <!--<ul class="rd-menu rd-navbar-megamenu">
                         <li class="rd-megamenu-item">
                           
                             <h6 class="rd-megamenu-title">Servicios 1</h6>
@@ -126,7 +131,7 @@
                             <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="cart-page.html">Cart page</a></li>
                             </ul>
                         </li>
-                        </ul>
+                        </ul>-->
                     </li>
                         <!-- RD Navbar Dropdown-->
                         <!--<ul class="rd-menu rd-navbar-dropdown">
@@ -141,7 +146,12 @@
                     
                     <li class="rd-nav-item {% if request.path == '/product/' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'product:products' %}">Productos</a>
                         <!-- RD Navbar Megamenu-->
-                        <ul class="rd-menu rd-navbar-megamenu">
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          {% for page in prodruct_context %}
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{% url 'product:category' page.id page.name|slugify %}">{{page.name}}</a></li>
+                          {% endfor %}
+                        </ul>
+                        <!--<ul class="rd-menu rd-navbar-megamenu">
                         <li class="rd-megamenu-item">
                           
                             <h6 class="rd-megamenu-title">Productos 1</h6>
@@ -162,7 +172,7 @@
                             
                             </ul>
                         </li>
-                        </ul>
+                        </ul>-->
                     </li>
                     <li class="rd-nav-item {% if request.path|slice:":6" == '/blog/' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'blog:blog' %}">Blog</a>
                         <!-- RD Navbar Megamenu-->

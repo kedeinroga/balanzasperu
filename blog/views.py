@@ -11,7 +11,7 @@ class BlogListView(ListView):
     model = Post
     #post_list = Post.objects.all().order_by('-id')
     template_name = 'blog/post_list.html'
-    paginate_by = 6
+    paginate_by = 2
 
     
     

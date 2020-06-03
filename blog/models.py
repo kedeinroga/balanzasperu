@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 from mptt.models import MPTTModel, TreeForeignKey
 
 # Create your models here.
-class Category(models.Model):
+class Category(MPTTModel):
     name = models.CharField(max_length=100, verbose_name="Nombre")
-    #parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
@@ -16,14 +16,17 @@ class Category(models.Model):
         verbose_name = "categoría"
         verbose_name_plural = "categorías"
         ordering = ['-created']
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
     
     
 
     def __str__(self):
         return self.name
 
-    #def get_absolute_url(self):
-        #return ('category')
+    def get_absolute_url(self):
+        return ('category')
 
 
 
