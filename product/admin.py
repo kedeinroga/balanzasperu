@@ -10,7 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
-    list_display = ('title', 'published', 'product_categories')
+    list_display = ('title', 'published','codigo', 'precio', 'product_categories')
     ordering = ('title','published')
     search_fields = ('title','content', 'categories__name')
     date_hierarchy = 'published'
