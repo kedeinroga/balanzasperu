@@ -41,7 +41,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = "producto"
         verbose_name_plural = "productos"
-        unique_together = ['codigo']
+        unique_together = ('codigo','numparte')
         ordering = ['-created']
 
     def __str__(self):

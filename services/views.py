@@ -3,6 +3,7 @@ from .models import Service, Category
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse, HttpResponseRedirect
+from django.db.models import Q
 # Create your views here.
 
 class ServicesListView(ListView):
