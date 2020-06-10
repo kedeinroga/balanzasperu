@@ -146,11 +146,16 @@
           <div class="tab-pane fade" id="tabs-3-3">
             <div class="unit unit-spacing-1 flex-column flex-md-row align-items-lg-center">
               <div class="unit-left"><span class="text-gray-800-01 mdi mdi-information-outline"></span></div>
-              <div class="unit-body">
-                <video width="683px" height="384px" controls>
-                  <source src="{{ product.video.url }}" type="video/mp4">
-                </video>
-              </div>
+              
+
+            <!-- 16:9 aspect ratio -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <video controls>
+                <source src="{{ product.video.url }}" type="video/mp4">
+              </video>
+            </div>
+
+              
             </div>
           </div>
         </div>
