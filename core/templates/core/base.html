@@ -147,7 +147,7 @@
                     <li class="rd-nav-item {% if request.path == '/product/' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'product:products' %}">Productos</a>
                         <!-- RD Navbar Megamenu-->
                         <ul class="rd-menu rd-navbar-dropdown">
-                          {% for page in prodruct_context %}
+                          {% for page in product_context %}
                           <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{% url 'product:category' page.id page.name|slugify %}">{{page.name}}</a></li>
                           {% endfor %}
                         </ul>

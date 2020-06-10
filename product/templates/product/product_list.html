@@ -24,7 +24,7 @@
   </section>
   <!-- Grid Gallery-->
   <section class="section section-lg bg-default">
-    <div class="container">
+    <!--<div class="container">
       <div class="isotope-filters isotope-filters-horizontal">
         <button class="isotope-filters-toggle button button-sm button-icon button-icon-right button-gray-3" data-custom-toggle=".isotope-filters-list" data-custom-toggle-hide-on-blur="true"><span class="icon mdi mdi-chevron-down"></span>Filter</button>
         <ul class="isotope-filters-list">
@@ -33,18 +33,18 @@
           <li><a href="#" data-isotope-filter="Type 2" data-isotope-group="gallery">Architectural Design</a></li>
         </ul>
       </div>
-    </div>
+    </div>-->
     <div class="container-fluid container-inset-0">
       <div class="row row-30 row-desktop-8 gutters-8 isotope hoverdir" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
         {% for product in product_list|dictsort:"id" reversed %}
         <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
           <!-- Thumbnail Modern-->
           <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption">
-            <a class="thumbnail-modern-figure" href="{% static 'core/' %}images/grid-gallery-1-1200x800-original.jpg" data-lightgallery="item">
+            <a class="thumbnail-modern-figure" href="{{product.image1.url}}" data-lightgallery="item">
               <img src="{{product.image1.url}}" alt="" width="474" height="355"/></a>
             <div class="thumbnail-modern-caption">
               <h5 class="thumbnail-modern-title"><a href="{% url 'product:detail' product.id product.title|slugify %}">{{product.title|safe}}</a></h5>
-              <div class="thumbnail-modern-badge">Server Maintenance</div>
+              <div class="thumbnail-modern-badge">{{product.categories.name}}</div>
             </div>
           </article>
         </div>

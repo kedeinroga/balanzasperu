@@ -64,19 +64,19 @@
           <div class="single-product">
             <h4 class="text-transform-none text-spacing-50">{{product.title|safe}}</h4>
             <div class="group-md group-middle">
-              <div class="single-product-price">$225.00</div>
+              <div class="single-product-price">{{product.precio}}</div>
               <div class="single-product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star-half"></span></div>
             </div>
             <p>{{product.content|safe}}</p>
             <hr class="hr-gray-300">
             <ul class="list list-description d-inline-block d-md-block">
               <li><span>Categoria:</span><span>{{product.categories.name}}</span></li>
-              <li><span>Weight:</span><span>15 kg</span></li>
-              <li><span>Dimensions:</span><span>60 x 60 x 90 cm</span></li>
+              <li><span>Peso:</span><span>{{product.peso}} Kg</span></li>
+              <li><span>Volumen:</span><span>{{product.volumen}} m3</span></li>
             </ul>
             
             <hr class="hr-gray-300">
-            <div class="group-sm group-middle"><span class="single-product-social-title">Share</span>
+            <!--<div class="group-sm group-middle"><span class="single-product-social-title">Share</span>
               <div>
                 <ul class="list-inline single-product-social-list list-inline-sm">
                   <li><a class="icon mdi mdi-facebook" href="#"></a></li>
@@ -85,7 +85,7 @@
                   <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
                 </ul>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -93,9 +93,9 @@
       <div class="tabs-custom tabs-horizontal tabs-corporate" id="tabs-3">
         <!-- Nav tabs-->
         <ul class="nav nav-tabs">
-          <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-3-1" data-toggle="tab">Comments</a></li>
-          <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-3-2" data-toggle="tab">Additional information</a></li>
-          <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-3-3" data-toggle="tab">Delivery and payment</a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-3-1" data-toggle="tab">Descripción</a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-3-2" data-toggle="tab">Recursos</a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-3-3" data-toggle="tab">Video</a></li>
         </ul>
         <!-- Tab panes-->
         <div class="tab-content">
@@ -103,68 +103,53 @@
             <div class="box-comment-wrap">
               <div class="box-comment box-comment-product">
                 <div class="unit flex-column flex-md-row">
-                  <div class="unit-left"><a class="box-comment-figure" href="#"><img src="{% static 'core/' %}images/user-1-119x119.jpg" alt="" width="119" height="119"/></a></div>
+                  <div class="unit-left"><a class="box-comment-figure" href="#"><img src="{{product.image1.url}}" alt="" width="119" height="119"/></a></div>
                   <div class="unit-body">
                     <div class="group-md group-justify">
-                      <div>
+                      <!--<div>
                         <div class="group-md group-middle">
                           <p class="box-comment-author"><a href="#">John Doe</a></p>
                           <div class="box-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star-half"></span></div>
                         </div>
-                      </div>
-                      <div class="box-comment-time">
+                      </div>-->
+                      <!--<div class="box-comment-time">
                         <time datetime="2018-11-30">Nov 30, 2018</time>
-                      </div>
+                      </div>-->
                     </div>
-                    <p class="box-comment-text">Lorem ipsum dolor sit amet, has mutat labores nostrum ei. Duo te blandit erroribus, ut sea ipsum nonumy, mel no ignota accusamus gloriatur. Id has habeo regione, explicari hendrerit reprimique cum te.</p>
+                    <p class="box-comment-text">{{product.description}}</p>
                   </div>
                 </div>
               </div>
             </div>
-            <h5>Your Comment</h5>
-            <form class="rd-form rd-mailform">
-              <div class="row row-14 gutters-14">
-                <div class="col-md-4">
-                  <div class="form-wrap">
-                    <input class="form-input" id="contact-your-name-3" type="text" name="name" data-constraints="@Required"/>
-                    <label class="form-label" for="contact-your-name-3">Your Name*</label>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-wrap">
-                    <input class="form-input" id="contact-email-3" type="email" name="email" data-constraints="@Email @Required"/>
-                    <label class="form-label" for="contact-email-3">Your E-mail*</label>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-wrap">
-                    <input class="form-input" id="contact-phone-3" type="text" name="phone" data-constraints="@Numeric"/>
-                    <label class="form-label" for="contact-phone-3">Phone</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-wrap">
-                    <label class="form-label" for="contact-message-3">Message*</label>
-                    <textarea class="form-input textarea-lg" id="contact-message-3" name="message" data-constraints="@Required"></textarea>
-                  </div>
-                </div>
-              </div>
-              <button class="button button-secondary button-winona" type="submit">Submit</button>
-            </form>
+            
           </div>
           <div class="tab-pane fade" id="tabs-3-2">
             <div class="unit unit-spacing-1 flex-column flex-md-row align-items-lg-center">
-              <div class="unit-left"><span class="icon-xxxl text-gray-800-01 mdi mdi-information-outline"></span></div>
+              <div class="unit-left"><span class="text-gray-800-01 mdi mdi-information-outline"></span></div>
               <div class="unit-body">
-                <p class="text-spacing-50">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat . At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire.</p>
+                <div class="aside-item col-sm-6 col-md-12">
+                  <h5 class="aside-services-title">Hoja de datos</h5>
+                  <a class="button button-lg button-icon button-icon-left button-primary button-winona" href="{{product.hojadatos.url}}" target="_blank"><span class="icon mdi mdi-download"></span><span>Descargar</span></a>
+                </div>
+                <br>
+                <br>
+                <div class="aside-item col-sm-6 col-md-12">
+                  <h5 class="aside-services-title">Lista de aplicaciones</h5>
+                  <a class="button button-lg button-icon button-icon-left button-primary button-winona" href="{{product.aplicaciones.url}}" target="_blank"><span class="icon mdi mdi-download"></span><span>Descargar</span></a>
+                </div>
+                
+          
+          
               </div>
             </div>
           </div>
           <div class="tab-pane fade" id="tabs-3-3">
             <div class="unit unit-spacing-1 flex-column flex-md-row align-items-lg-center">
-              <div class="unit-left"><span class="icon-xxxl text-gray-800-01 mdi mdi-information-outline"></span></div>
+              <div class="unit-left"><span class="text-gray-800-01 mdi mdi-information-outline"></span></div>
               <div class="unit-body">
-                <p class="text-spacing-50">Here you can read some details about a nifty little lifecycle of your order's journey. At first you choose the product you like. Then you put into your shopping cart and pass the checkout process in a few clicks. Our store offers several payment and delivery methods, so you have an opportunity to choose which one is the most convenient for you.</p>
+                <video width="683px" height="384px" controls>
+                  <source src="{{ product.video.url }}" type="video/mp4">
+                </video>
               </div>
             </div>
           </div>

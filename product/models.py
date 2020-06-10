@@ -25,6 +25,8 @@ class Product(models.Model):
     content = RichTextField(verbose_name="Contenido")
     codigo = models.CharField(verbose_name="Código", max_length=20, unique=True)
     precio = models.FloatField(verbose_name="Precio", default=0)
+    peso = models.FloatField(verbose_name="Peso en Kg", default=0)
+    volumen = models.FloatField(verbose_name="Volumen en m3", default=0)
     numparte = models.CharField(verbose_name="Número de parte", max_length=50)
     image1 = models.ImageField(verbose_name="Imagen principal", upload_to="product")
     image2 = models.ImageField(verbose_name="Imagen secundaria", upload_to="product")
