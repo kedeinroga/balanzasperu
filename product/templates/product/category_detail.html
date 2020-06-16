@@ -29,7 +29,7 @@
   <div class="container">
     <div class="row row-60 row-xl-75">
       <div class="col-lg-8">
-        {% for post in category.get_products.all %}
+        {% for post in categories.get_categories.get_products.all %}
         <div class="single-post section-style-2">
           <h5 class="text-spacing-50 font-weight-normal text-transform-none">{{post.title}}</h5>
           <div class="group-md group-middle">
@@ -41,11 +41,26 @@
           <br>
           <br>
           <!-- Quote Classic-->
-          
-         
         </div>
         {% endfor %}
         
+        <div class="col-sm-6 col-xl-4">
+          <!-- Product-->
+          <article class="product">
+            <div class="product-figure"><img src="{{post.image1.url}}" alt="" width="195" height="141"/>
+            </div>
+            <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+            </div>
+            <h6 class="product-title">{{post.title}}</h6>
+            <div class="product-price-wrap">
+              <div class="product-price">$245.00</div>
+            </div>
+            <div class="product-button">
+              <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="cart-page.html">Add to cart</a></div>
+              <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="single-product.html">View Product</a></div>
+            </div>
+          </article>
+        </div>
       </div>
       <div class="col-lg-4">
         <div class="inset-left-xl-40">

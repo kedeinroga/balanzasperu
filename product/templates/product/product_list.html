@@ -36,15 +36,22 @@
     </div>-->
     <div class="container-fluid container-inset-0">
       <div class="row row-30 row-desktop-8 gutters-8 isotope hoverdir" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
+        
         {% for product in product_list|dictsort:"id" reversed %}
-        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption">
-            <a class="thumbnail-modern-figure" href="{{product.image1.url}}" data-lightgallery="item">
-              <img src="{{product.image1.url}}" alt="" width="474" height="355"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="{% url 'product:detail' product.id product.title|slugify %}">{{product.title|safe}}</a></h5>
-              <div class="thumbnail-modern-badge">{{product.categories.name}}</div>
+        <div class="col-sm-6 col-xl-4">
+          <!-- Product-->
+          <article class="product">
+            <div class="product-figure"><img src="{{product.image1.url}}" alt="" width="195" height="141"/>
+            </div>
+            <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+            </div>
+            <h6 class="product-title">{{product.title|safe}}</h6>
+            <div class="product-price-wrap">
+              <div class="product-price">{{product.precio}}</div>
+            </div>
+            <div class="product-button">
+              <!--<div class="button-wrap"><a class="button button-xs button-primary button-winona" href="cart-page.html">Add to cart</a></div>-->
+              <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="{% url 'product:detail' product.id product.title|slugify %}">Ver Producto</a></div>
             </div>
           </article>
         </div>

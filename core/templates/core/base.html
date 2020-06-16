@@ -146,33 +146,33 @@
                     
                     <li class="rd-nav-item {% if request.path == '/product/' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'product:products' %}">Productos</a>
                         <!-- RD Navbar Megamenu-->
-                        <ul class="rd-menu rd-navbar-dropdown">
-                          {% for page in product_context %}
+                        <!--<ul class="rd-menu rd-navbar-dropdown">
+                          {% for page in pcat_context %}
                           <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{% url 'product:category' page.id page.name|slugify %}">{{page.name}}</a></li>
+                          {% for subpage in psub_context %}
+                          {% if  page.id ==  subpage.categories_id  %}
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="#">{{subpage.name}}</a></li>
+                          {% endif %}
                           {% endfor %}
-                        </ul>
-                        <!--<ul class="rd-menu rd-navbar-megamenu">
-                        <li class="rd-megamenu-item">
-                          
-                            <h6 class="rd-megamenu-title">Productos 1</h6>
-                            <ul class="rd-megamenu-list">
-                              {% for page in prodruct_context %}
-                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{% url 'product:category' page.id page.name|slugify %}">{{page.name}}</a></li>
-                              {% endfor %}
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 page</a></li>
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">Coming soon</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li class="rd-megamenu-item">
-                            <h6 class="rd-megamenu-title">Productos 2</h6>
-                            <ul class="rd-megamenu-list">
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="shop.html">Shop</a></li>
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="single-product.html">Single product</a></li>
-                            
-                            </ul>
-                        </li>
+                          {% endfor %}
                         </ul>-->
+                        <ul class="rd-menu rd-navbar-megamenu">
+                          {% for page in pcat_context %}
+                        <li class="rd-megamenu-item">
+                            <h6 class="rd-megamenu-title"><a href="{% url 'product:category' page.id page.name|slugify %}">{{page.name}}</a></h6>
+                            <ul class="rd-megamenu-list">
+                              {% for subpage in psub_context %}
+                              {% if  page.id ==  subpage.categories_id  %}
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="#">{{subpage.name}}</a></li>
+                              {% endif %}
+                              {% endfor %}
+                            
+                            
+                            </ul>
+                        </li>
+                        {% endfor %}
+                        
+                        </ul>
                     </li>
                     <li class="rd-nav-item {% if request.path|slice:":6" == '/blog/' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'blog:blog' %}">Blog</a>
                         <!-- RD Navbar Megamenu-->
