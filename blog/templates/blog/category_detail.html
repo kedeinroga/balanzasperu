@@ -43,6 +43,8 @@
             </div>
           </div>
           <img src="{{post.image.url}}" alt="" width="770" height="403"/>
+          <br>
+          <br>
           {{post.content|safe}}
           <br>
           <br>
@@ -60,25 +62,13 @@
               <!-- RD Search Form-->
               <form class="form-search rd-search form-search" action="search-results.html" method="GET">
                 <div class="form-wrap">
-                  <label class="form-label" for="search-form-2">Search the blog...</label>
+                  <label class="form-label" for="search-form-2">Buscar en blog...</label>
                   <input class="form-input" id="search-form-2" type="text" name="s" autocomplete="off">
                   <button class="button-search fl-bigmug-line-search74" type="submit"></button>
                 </div>
               </form>
             </div>
-            <div class="aside-item col-md-6 col-lg-12">
-              <h6 class="aside-title">Category</h6>
-              <ul class="list-marked-2 list-category-2">
-                
-                {% for post in category.get_posts.all %}
-                {% for category in post.categories.all %}
-                    <a href="{% url 'blog:category' category.id category.name|slugify %}" class="link">{{category.name}}</a>{% if not forloop.last %}{% endif %}
-                {% endfor %}
-                {% endfor %}
-                
-              
-              </ul>
-            </div>
+            
             
             
             

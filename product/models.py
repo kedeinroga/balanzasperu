@@ -5,6 +5,8 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name="Nombre")
+    description = RichTextField(verbose_name="Descripción de la categoria")
+    image = models.ImageField(verbose_name="Imagen de la categoria", upload_to="product")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
@@ -22,6 +24,8 @@ class Category(models.Model):
 class Subcategory(models.Model):
     categories = models.ForeignKey(Category, verbose_name="Categorías", related_name="get_categories", on_delete=models.CASCADE)
     name = models.CharField(max_length=100, verbose_name="Nombre")
+    description = RichTextField(verbose_name="Descripción de la subcategoria")
+    image = models.ImageField(verbose_name="Imagen de la subcategoria", upload_to="product")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 

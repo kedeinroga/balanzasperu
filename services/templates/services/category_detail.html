@@ -14,7 +14,11 @@
       <h3 class="breadcrumbs-custom-title">{{category.name}}</h3>
       <div class="breadcrumbs-custom-decor"></div>
     </div>
+    {% if category.image %}
+    <div class="box-transform" style="background-image: url({{category.image.url}});"></div>
+    {% else %}
     <div class="box-transform" style="background-image: url({% static 'core/images/bg-blog.jpg' %});"></div>
+    {% endif %}
   </div>
   <div class="container">
     <ul class="breadcrumbs-custom-path">
@@ -29,6 +33,7 @@
 <section class="section section-lg bg-default">
   <div class="container">
     <div class="row row-40 justify-content-center">
+      <p>{{category.description|safe}}</p>
       {% for sub in category.get_categories.all %}
       {% for service in sub.get_services.all %}
       <div class="col-md-6 col-lg-5 col-xl-4">

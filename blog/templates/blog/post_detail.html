@@ -28,7 +28,7 @@
 <section class="section section-lg bg-default">
   <div class="container">
     <div class="row row-60 row-xl-75">
-      <div class="col-lg-8">
+      <div class="col-lg-12">
         
         <div class="single-post section-style-2">
           <h5 class="text-spacing-50 font-weight-normal text-transform-none">{{object.title}}</h5>
@@ -53,36 +53,7 @@
         
         
       </div>
-      <div class="col-lg-4">
-        <div class="inset-left-xl-40">
-          <div class="aside row row-60 row-xl-75">
-            <div class="aside-item col-12">
-              <!-- RD Search Form-->
-              <form class="form-search rd-search form-search" action="search-results.html" method="GET">
-                <div class="form-wrap">
-                  <label class="form-label" for="search-form-2">Search the blog...</label>
-                  <input class="form-input" id="search-form-2" type="text" name="s" autocomplete="off">
-                  <button class="button-search fl-bigmug-line-search74" type="submit"></button>
-                </div>
-              </form>
-            </div>
-            <div class="aside-item col-md-6 col-lg-12">
-              <h6 class="aside-title">Category</h6>
-              <ul class="list-marked-2 list-category-2">
-                
-                
-                {% for category in post.categories.all %}
-                <li><a href="{% url 'blog:category' category.id category.name|slugify %}">{{category.name}}</a><span class="list-category-number">12</span></li>
-                {% endfor %}
-                
-              </ul>
-            </div>
-            
-            
-            
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </section>
