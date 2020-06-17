@@ -29,7 +29,8 @@
 <section class="section section-lg bg-default">
   <div class="container">
     <div class="row row-40 justify-content-center">
-      {% for service in category.get_services.all %}
+      {% for sub in category.get_categories.all %}
+      {% for service in sub.get_services.all %}
       <div class="col-md-6 col-lg-5 col-xl-4">
         
         <!-- Services Classic-->
@@ -45,6 +46,7 @@
           </div>
         </article>
       </div>
+      {% endfor %}
       {% endfor %}
     </div>
     <div class="pagination-wrap">

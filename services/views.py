@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Service, Category
+from .models import Service, Category, Subcategory
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse, HttpResponseRedirect
@@ -19,4 +19,9 @@ class ServicesDetailView(DetailView):
 class CategoryDetailView(DetailView):
     model = Category
     template_name = 'services/category_detail.html'
+    paginate_by = 6
+
+class SubcategoryDetailView(DetailView):
+    model = Subcategory
+    template_name = 'services/subcategory_detail.html'
     paginate_by = 6
