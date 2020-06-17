@@ -29,7 +29,7 @@
       <div class="col-md-6 col-lg-5 col-xl-4">
         
         <!-- Services Classic-->
-        <article class="services-classic"><a class="services-classic-figure" href="single-service.html"><img src="{{service.image.url}}" alt="" width="370" height="274"/></a>
+        <article class="services-classic"><a class="services-classic-figure" href="{% url 'services:service' service.id service.title|slugify %}"><img src="{{service.image.url}}" alt="" width="370" height="274"/></a>
           <div class="services-classic-caption">
             <div class="unit align-items-lg-center">
               <div class="unit-left"><span class="services-classic-icon linearicons-cloud-gear icon-54"></span></div>

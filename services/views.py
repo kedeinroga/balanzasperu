@@ -17,7 +17,6 @@ class ServicesDetailView(DetailView):
 
 
 class CategoryDetailView(DetailView):
-    
-    
     model = Category
     template_name = 'services/category_detail.html'
+    paginate_by = 6

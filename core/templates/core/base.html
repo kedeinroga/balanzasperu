@@ -163,7 +163,7 @@
                             <ul class="rd-megamenu-list">
                               {% for subpage in psub_context %}
                               {% if  page.id ==  subpage.categories_id  %}
-                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="#">{{subpage.name}}</a></li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{% url 'product:subcategory' subpage.id subpage.name|slugify %}">{{subpage.name}}</a></li>
                               {% endif %}
                               {% endfor %}
                             

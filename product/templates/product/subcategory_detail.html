@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{category.name}}{% endblock %}
+{% block title %}{{subcategory.name}}{% endblock %}
 
 
 
@@ -11,7 +11,7 @@
 <section class="bg-gray-7">
   <div class="breadcrumbs-custom box-transform-wrap context-dark">
     <div class="container">
-      <h3 class="breadcrumbs-custom-title">{{category.name}}</h3>
+      <h3 class="breadcrumbs-custom-title">{{subcategory.name}}</h3>
       <div class="breadcrumbs-custom-decor"></div>
     </div>
     <div class="box-transform" style="background-image: url({% static 'core/images/bg-blog.jpg' %});"></div>
@@ -20,7 +20,8 @@
     <ul class="breadcrumbs-custom-path">
       <li><a href="{% url 'home' %}">Inicio</a></li>
       <li><a href="{% url 'product:products' %}">Productos</a></li>
-      <li class="active">{{category.name}}</li>
+      <li><a href="{% url 'product:category' subcategory.categories.id subcategory.categories.name|slugify %}">{{subcategory.categories}}</a></li>
+      <li class="active">{{subcategory.name}}</li>
     </ul>
   </div>
 </section>
@@ -34,8 +35,7 @@
       <div class="col-lg-8 col-xl-9">
         
         <div class="row row-30 row-md-40 row-xl-60">
-      {% for sub in category.get_categories.all %}
-      {% for product in sub.get_products.all %}
+          {% for product in subcategory.get_products.all %}
       <div class="col-sm-6 col-xl-4">
         <!-- Product-->
         <article class="product">
@@ -53,7 +53,6 @@
           </div>
         </article>
       </div>
-      {% endfor %}
       {% endfor %}
           
         </div>

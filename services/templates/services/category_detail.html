@@ -24,52 +24,65 @@
     </ul>
   </div>
 </section>
-<!-- Grid Blog             -->
+
+<!-- Services 2-->
 <section class="section section-lg bg-default">
   <div class="container">
-    <div class="row row-60 row-xl-75">
-      <div class="col-lg-8">
-        {% for post in category.get_services.all %}
-        <div class="single-post section-style-2">
-          <h5 class="text-spacing-50 font-weight-normal text-transform-none">{{post.title}}</h5>
-          <div class="group-md group-middle">
-            
-          </div>
-          <img src="{{post.image.url}}" alt="" width="770" height="403"/>
-          {{post.content|safe}}
-          <br>
-          <br>
-          <!-- Quote Classic-->
-          
-         
-        </div>
-        {% endfor %}
+    <div class="row row-40 justify-content-center">
+      {% for service in category.get_services.all %}
+      <div class="col-md-6 col-lg-5 col-xl-4">
         
-      </div>
-      <div class="col-lg-4">
-        <div class="inset-left-xl-40">
-          <div class="aside row row-60 row-xl-75">
-            <div class="aside-item col-12">
-              <!-- RD Search Form-->
-              <form action="#" method="GET">
-                <div class="form-wrap">
-                  <label class="form-label" for="search-form-2">Buscar en servicios...</label>
-                  <input class="form-input" id="search-form-2" type="text" name="s" autocomplete="off">
-                  <button class="button-search fl-bigmug-line-search74" type="submit"></button>
-                </div>
-              </form>
+        <!-- Services Classic-->
+        <article class="services-classic"><a class="services-classic-figure" href="{% url 'services:service' service.id service.title|slugify %}"><img src="{{service.image.url}}" alt="" width="370" height="274"/></a>
+          <div class="services-classic-caption">
+            <div class="unit align-items-lg-center">
+              <div class="unit-left"><span class="services-classic-icon linearicons-cloud-gear icon-54"></span></div>
+              <div class="unit-body">
+                <h5 class="services-classic-title"><a href="{% url 'services:service' service.id service.title|slugify %}">{{service.title}}</a></h5>
+                <p class="services-classic-text">{{service.subtitle}}</p>
+              </div>
             </div>
-            <div class="aside-item col-md-6 col-lg-12">
-              
-            </div>
-            
-            
-            
           </div>
-        </div>
+        </article>
       </div>
+      {% endfor %}
+    </div>
+    <div class="pagination-wrap">
+      <!-- Bootstrap Pagination-->
+      {% if is_paginated %}
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li class="page-item page-item-control ">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                  <span class="icon" aria-hidden="true"></span>
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item page-item-control disabled">
+                <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+              </li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+              <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+              </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li class="page-item page-item-control">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                  <span class="icon" aria-hidden="true"></span>
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item page-item-control disabled">
+                <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
     </div>
   </div>
 </section>
-
 {% endblock %}
