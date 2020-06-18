@@ -93,7 +93,7 @@
         <!-- Nav tabs-->
         <ul class="nav nav-tabs">
           <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-3-1" data-toggle="tab">Descripción</a></li>
-          <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-3-2" data-toggle="tab">Recursos</a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-3-2" data-toggle="tab">Lista de aplicaciones</a></li>
           <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-3-3" data-toggle="tab">Video</a></li>
         </ul>
         <!-- Tab panes-->
@@ -118,43 +118,35 @@
                     <p class="box-comment-text">{{product.description}}</p>
                   </div>
                 </div>
+                <br>
+                <div class="unit-body">
+                  <div class="aside-item col-sm-6 col-md-12">
+                    <a class="button button-sm button-primary button-winona" href="{{product.hojadatos.url}}" target="_blank"><span class="icon mdi mdi-download"></span><span>Hoja de datos</span></a>
+                  </div>
+                </div>
               </div>
             </div>
             
           </div>
           <div class="tab-pane fade" id="tabs-3-2">
             <div class="unit unit-spacing-1 flex-column flex-md-row align-items-lg-center">
-              <div class="unit-left"><span class="text-gray-800-01 mdi mdi-information-outline"></span></div>
-              <div class="unit-body">
-                <div class="aside-item col-sm-6 col-md-12">
-                  <h5 class="aside-services-title">Hoja de datos</h5>
-                  <a class="button button-lg button-icon button-icon-left button-primary button-winona" href="{{product.hojadatos.url}}" target="_blank"><span class="icon mdi mdi-download"></span><span>Descargar</span></a>
-                </div>
-                <br>
-                <br>
-                <div class="aside-item col-sm-6 col-md-12">
-                  <h5 class="aside-services-title">Lista de aplicaciones</h5>
-                  <a class="button button-lg button-icon button-icon-left button-primary button-winona" href="{{product.aplicaciones.url}}" target="_blank"><span class="icon mdi mdi-download"></span><span>Descargar</span></a>
-                </div>
-                
-          
-          
-              </div>
+              <p>Lista de aplicaciones</p>
+              {% for sub in product.get_subaplications.all %}
+              {{sub.name}}
+              {% for prod in sub.get_subaplications.all %}
+              {{prod.name}}
+              {% endfor %}
+              {% endfor %}
             </div>
           </div>
           <div class="tab-pane fade" id="tabs-3-3">
             <div class="unit unit-spacing-1 flex-column flex-md-row align-items-lg-center">
-              <div class="unit-left"><span class="text-gray-800-01 mdi mdi-information-outline"></span></div>
-              
-
             <!-- 16:9 aspect ratio -->
             <div class="embed-responsive embed-responsive-16by9">
               <video controls>
                 <source src="{{ product.video.url }}" type="video/mp4">
               </video>
             </div>
-
-              
             </div>
           </div>
         </div>

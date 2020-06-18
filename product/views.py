@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .models import Product, Category, Subcategory
+from .models import Product, Category, Subcategory, Aplicaciones
 from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Subcategory, Product
+from .models import Category, Subcategory, Product, Aplicaciones, Subaplicaciones
 
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
@@ -9,7 +9,11 @@ class CategoryAdmin(admin.ModelAdmin):
 class SubcategoryAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
 
+class AplicacionesAdmin(admin.ModelAdmin):
+    readonly_fields = ('created', 'updated')
 
+class SubaplicacionesAdmin(admin.ModelAdmin):
+    readonly_fields = ('created', 'updated')
 
 class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
@@ -28,6 +32,8 @@ class ProductAdmin(admin.ModelAdmin):
         return ", ".join([c.name for c in obj.categories.all().order_by("name")])
     product_categories.short_description = "Categorías"
 
+admin.site.register(Aplicaciones, AplicacionesAdmin)
+admin.site.register(Subaplicaciones, SubaplicacionesAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Subcategory, SubcategoryAdmin)
 admin.site.register(Product, ProductAdmin)
