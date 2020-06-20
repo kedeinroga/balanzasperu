@@ -83,7 +83,7 @@ class Product(models.Model):
     image1 = models.ImageField(verbose_name="Imagen principal", upload_to="product")
     image2 = models.ImageField(verbose_name="Imagen secundaria", upload_to="product")
     image3 = models.ImageField(verbose_name="Imagen secundaria 2", upload_to="product")
-    video = models.FileField(verbose_name="Video", upload_to="product")
+    videourl = models.URLField(verbose_name="Video",max_length = 200, blank=True)
     hojadatos = models.FileField(verbose_name="Hoja de datos", upload_to="product")
     subaplications = models.ManyToManyField(Subaplicaciones, verbose_name="Sub lista de aplicaciones", related_name="get_subaplications")
     published = models.DateTimeField(verbose_name="Fecha de publicación", default=now)
